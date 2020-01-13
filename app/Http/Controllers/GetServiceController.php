@@ -56,7 +56,6 @@ class GetServiceController extends Controller
         ]);
 
         auth()->user()->services()->create($data);
-        // auth()->user()->create($data);
         $users = GetService::all();
         return view('/services', ['users' => $users]);
         // // categories()->sub_categories()->create($data);
