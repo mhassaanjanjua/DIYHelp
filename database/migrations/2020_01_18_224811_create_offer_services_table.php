@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateGetServicesTable extends Migration
+class CreateOfferServicesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,17 @@ class CreateGetServicesTable extends Migration
      */
     public function up()
     {
-        Schema::create('get_services', function (Blueprint $table) {
+        Schema::create('offer_services', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('categories_id');
             $table->unsignedBigInteger('sub_categories_id');
-            $table->string('title');
+            $table->string('profession');
             $table->text('description');
-            $table->integer('duration');
-            $table->date('date');
-            $table->string('street');
-            $table->string('city');
-            $table->integer('wage');
+            $table->integer('availability_hours');
+            $table->date('availability_days');
+            $table->string('charges');
+            $table->string('total_hours');
             $table->timestamps();
 
             $table->index('user_id');
@@ -40,6 +39,6 @@ class CreateGetServicesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('get_services');
+        Schema::dropIfExists('offer_services');
     }
 }

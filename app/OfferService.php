@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class GetService extends Model
+class OfferService extends Model
 {
     //
     protected $guarded = [];
@@ -24,8 +24,8 @@ class GetService extends Model
         return $this->belongsTo((User::class));
     }
 
-    public function applications()
-    {
-        return $this->belongsTo((ServiceApplications::class));
-    }
+    // public function applications()
+    // {
+    //     return $this->belongsTo((Applications::class));
+    // }
 }

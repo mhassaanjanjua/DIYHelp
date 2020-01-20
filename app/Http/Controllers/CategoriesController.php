@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Categories;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class CategoriesController extends Controller
 {
@@ -18,9 +18,6 @@ class CategoriesController extends Controller
     {
 
         $categories = Categories::all();
-        return view('categories',compact('categories',$categories));
-
-
-        // return view('categories');
+        return view('/categories', ['categories' => $categories]);
     }
 }

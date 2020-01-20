@@ -8,13 +8,14 @@
     </div>
     @endif
 </div>
+
 <section class="site-forms blue">
     <div class="container">
         <div class="row">
             <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                 <div class="form-heading">
-                    <span>Get services</span>
-                    <h2>Get Easy and Affordable help</h2>
+                    <span>Offer services</span>
+                    <h2>I want to offer my services as</h2>
                 </div>
             </div>
         </div>
@@ -31,13 +32,12 @@
                             <div class="row">
                                 <div class="col-md-11 col-lg-11 col-sm-11 col-xs-12">
                                     <div class="form-heading-caption">
-                                        <h2>Get Services</h2>
+                                        <h2>Offer Services</h2>
                                     </div>
                                 </div>
                             </div>
                             <div class="siteform">
-                                <!-- /////////////////////////////////////////////////////////////////////////// -->
-                                <form action="/p" method="post">
+                                <form action="/o" method="post">
                                     @csrf
                                     <div class="form-row">
                                         <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
@@ -61,9 +61,9 @@
                                             @endif
                                         </div>
                                         <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                                            <input name="title" type="text" class="form-control" placeholder="Title">
-                                            @if ($errors->has('title'))
-                                            <strong>{{ $errors->first('title') }}</strong>
+                                            <input name="profession" type="text" class="form-control" placeholder="Profession">
+                                            @if ($errors->has('profession'))
+                                            <strong>{{ $errors->first('profession') }}</strong>
                                             @endif
                                         </div>
                                     </div>
@@ -77,12 +77,14 @@
                                     </div>
 
                             </div>
-                            <div class="siteform">
 
+                        </div>
+                        <div class="siteform">
+                            <form>
                                 <div class="form-row">
                                     <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
                                         <select id="categories_id" class="form-control" name="categories_id" required>
-                                            <option name="">Select Category</option>
+                                            <option name="">Select Job Category</option>
                                             @if(count($categories) > 0)
                                             @foreach($categories as $key => $category)
                                             <option value="{!!$category->id !!}">{!!$category->name !!}</option>
@@ -95,7 +97,7 @@
                                     </div>
                                     <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
                                         <select id="sub_categories_id" class="form-control" name="sub_categories_id" required>
-                                            <option name="">Select Sub Category</option>
+                                            <option name="">Select Job Sub Category</option>
                                             @if(count($sub_categories) > 0)
                                             @foreach($sub_categories as $key => $subCategory)
                                             <option value="{!!$subCategory->id !!}">{!!$subCategory->name !!}</option>
@@ -109,60 +111,48 @@
                                 </div>
                                 <div class="form-row">
                                     <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                                        <input name="duration" type="text" class="form-control" placeholder="Duration">
-                                        @if ($errors->has('duration'))
-                                        <strong>{{ $errors->first('duration') }}</strong>
+                                        <input name="availability_hours" type="text" class="form-control" placeholder="Availability Hours">
+                                        @if ($errors->has('availability_hours'))
+                                        <strong>{{ $errors->first('availability_hours') }}</strong>
                                         @endif
                                     </div>
                                     <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                                        <input name="date" type="text" class="form-control" placeholder="Date">
-                                        @if ($errors->has('date'))
-                                        <strong>{{ $errors->first('date') }}</strong>
+                                        <input name="availability_days" type="date" class="form-control" placeholder="Availability Days">
+                                        @if ($errors->has('availability_days'))
+                                        <strong>{{ $errors->first('availability_days') }}</strong>
                                         @endif
                                     </div>
                                 </div>
                                 <div class="form-row">
-                                    <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                                        <input name="street" class="form-control" placeholder="Street">
-                                        @if ($errors->has('street'))
-                                        <strong>{{ $errors->first('street') }}</strong>
-                                        @endif
-                                    </div>
-                                    <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                                        <input name="city" class="form-control" placeholder="City">
-                                        @if ($errors->has('city'))
-                                        <strong>{{ $errors->first('city') }}</strong>
-                                        @endif
-                                    </div>
                                 </div>
                                 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                                    <input name="wage" type="text" class="form-control" placeholder="Charges per hour (optional)">
-                                    @if ($errors->has('wage'))
-                                    <strong>{{ $errors->first('wage') }}</strong>
+                                    <input name="charges" type="text" class="form-control" placeholder="Charges per hour (optional)">
+                                    @if ($errors->has('charges'))
+                                    <strong>{{ $errors->first('charges') }}</strong>
                                     @endif
                                 </div>
                                 <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                                    <input name="hours" type="text" class="form-control" placeholder="Total Number of Hours">
-                                    @if ($errors->has('hours'))
-                                    <strong>{{ $errors->first('hours') }}</strong>
+                                    <input name="total_hours" type="text" class="form-control" placeholder="Total Number of Hours">
+                                    @if ($errors->has('total_hours'))
+                                    <strong>{{ $errors->first('total_hours') }}</strong>
                                     @endif
                                 </div>
                                 <div class="form-row">
                                     <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
-                                        <button type="submit" class="btn btn-primary">Cancel</button>
+                                        <a href="../services" class="btn btn-primary"><span>Back</span><img src="/images/left-white.png"> </a>
                                     </div>
                                     <div class="col-md-offset-4 col-lg-offset-4 col-sm-offset-4 col-md-4 col-lg-4 col-sm-4 col-xs-12">
-                                        <button type="submit" class="btn btn-primary"><span>Post</span><img src="/images/right-white.png"></button>
+                                        <button type="submit" class="btn btn-primary"><span>Offer</span><img src="/images/right-white.png"></button>
                                     </div>
                                 </div>
-                                </form>
-                            </div>
-
+                            </form>
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     </div>
 </section>
 

@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Console\Application;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -40,5 +41,15 @@ class User extends Authenticatable
     public function services()
     {
         return $this->hasMany((GetService::class));
+    }
+
+    public function offers()
+    {
+        return $this->hasMany((OfferService::class));
+    }
+
+    public function applications()
+    {
+        return $this->hasMany((ServiceApplications::class));
     }
 }

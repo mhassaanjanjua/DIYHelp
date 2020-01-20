@@ -17,18 +17,19 @@
                 <div class="row">
                     <div class="col-md-offset-9 col-lg-offset-9 col-sm-offset-9 col-md-3 col-lg-3 col-sm-3 col-xs-12">
                         <select class="form-control">
-                            <option>Filter</option>
-                            <option>Services</option>
-                            <option>Offers</option>
+                            <option>Sort By</option>
+                            <option>Sort By 1</option>
+                            <option>Sort By 2</option>
+                            <option>Sort By 3</option>
                         </select>
                     </div>
                 </div>
             </form>
         </div>
-        @foreach($services as $service)
+        @foreach($offers as $offer)
         <div class="all_items-box">
             <div class="item-box">
-                <a href="{{ url('/details') }}/{{$service->id}}">
+                <a href="{{ url('/offerdetails') }}/{{$offer->id}}">
                     <div class="row">
                         <div class="col-md-3 col-lg-3 col-sm-3 col-xs-12">
                             <div class="all_items-box-img">
@@ -37,11 +38,11 @@
                         </div>
                         <div class="col-md-9 col-lg-9 col-sm-9 col-xs-12">
                             <div class="all_items-box-text">
-                                <h2>{{ $service['title'] }}</h2>
-                                <span class="prize">Euro {{ $service['wage'] }}</span>
+                                <h2>{{ $offer['profession'] }}</h2>
+                                <span class="prize">Euro {{ $offer['total_hours'] }}</span>
                             </div>
                             <div class="all_items-box-text">
-                                <p>{{ $service['description'] }}</p>
+                                <p>{{ $offer['description'] }}</p>
                             </div>
                         </div>
                     </div>
@@ -56,7 +57,7 @@
                     <h3>OR</h3>
                 </div>
                 <div class="acknowledge-box-button">
-                    <a href="../o/create-offer" class="btn btn-primary"><span>Post an Ad</span><img src="/images/right-white.png"></a>
+                    <a href="../p/create-service" class="btn btn-primary"><span>Post an Ad</span><img src="/images/right-white.png"></a>
                 </div>
             </div>
         </div>

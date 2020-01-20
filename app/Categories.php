@@ -16,4 +16,9 @@ class Categories extends Model
     {
         return $this->hasMany((GetService::class));
     }
+
+    public function offer_services()
+    {
+        return $this->hasMany((OfferService::class));
+    }
 }

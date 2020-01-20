@@ -63,7 +63,7 @@
             <div class="no-pad col-md-4 col-lg-4 col-sm-4 col-xs-12">
                 <div class="help-box">
                     <div class="help-box-inner">
-                        <a href="category.html">
+                        <a href="categories">
                             <img src="/images/s1.png" class="img-responsive" />
                         </a>
                     </div>
@@ -82,7 +82,7 @@
             <div class="no-pad col-md-4 col-lg-4 col-sm-4 col-xs-12">
                 <div class="help-box">
                     <div class="help-box-inner">
-                        <a href="offer_services.html">
+                        <a href="services">
                             <img src="/images/s3.png" class="img-responsive" />
                         </a>
                     </div>
