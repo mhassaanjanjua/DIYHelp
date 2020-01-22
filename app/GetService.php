@@ -26,6 +26,6 @@ class GetService extends Model
 
     public function applications()
     {
-        return $this->belongsTo((ServiceApplications::class));
+        return $this->hasOne((ServiceApplications::class));
     }
 }

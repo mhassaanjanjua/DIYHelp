@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('theme.default')
 
 @section('content')
 <div class="card-body">
@@ -8,24 +8,15 @@
     </div>
     @endif
 </div>
-<section class="all_items">
+<section class="category">
     <div class="container">
-        <div class="sitefilterform">
-            <form>
-                <div class="row">
-                </div>
-                <div class="row">
-                    <div class="col-md-offset-9 col-lg-offset-9 col-sm-offset-9 col-md-3 col-lg-3 col-sm-3 col-xs-12">
-                        <select class="form-control">
-                            <option>Sort By</option>
-                            <option>Sort By 1</option>
-                            <option>Sort By 2</option>
-                            <option>Sort By 3</option>
-                        </select>
-                    </div>
-                </div>
-            </form>
+        @if (count($offers) == 0)
+        <div class="all_items-box">
+            <div class="item-box" align="center">
+                <h4>No offers available right now. Post your required service to get one.</h4>
+            </div>
         </div>
+        @else
         @foreach($offers as $offer)
         <div class="all_items-box">
             <div class="item-box">
@@ -39,29 +30,28 @@
                         <div class="col-md-9 col-lg-9 col-sm-9 col-xs-12">
                             <div class="all_items-box-text">
                                 <h2>{{ $offer['profession'] }}</h2>
-                                <span class="prize">Euro {{ $offer['total_hours'] }}</span>
+                                <span class="prize">Hourly: €{{ $offer['charges'] }}</span>
                             </div>
                             <div class="all_items-box-text">
                                 <p>{{ $offer['description'] }}</p>
+                                <span class="prize">Posted on: {{ $offer['created_at']->format('d.m.Y') }}</span>
                             </div>
                         </div>
                     </div>
                 </a>
             </div>
             @endforeach
+            @endif
 
         </div>
         <div class="row">
             <div class="col-md-12 col-lg-12 col-sm-12 col xs-12">
-                <div class="or">
-                    <h3>OR</h3>
-                </div>
                 <div class="acknowledge-box-button">
                     <a href="../p/create-service" class="btn btn-primary"><span>Post an Ad</span><img src="/images/right-white.png"></a>
                 </div>
             </div>
         </div>
-        <div class="pagination">
+        <!-- <div class="pagination">
             <div class="row">
                 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                     <ul class="page_navi">
@@ -86,22 +76,7 @@
                     </ul>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
 </section>
-<footer class="footer-global">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                <div class="copy-right">
-                    <p>Copyright © 2019 DIY-Help. All Rights Reserved.</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                <div class="develop">
-                    <p><span>Small Masters Project.</span></p>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
+@endsection

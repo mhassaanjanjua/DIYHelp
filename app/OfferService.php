@@ -24,8 +24,8 @@ class OfferService extends Model
         return $this->belongsTo((User::class));
     }
 
-    // public function applications()
-    // {
-    //     return $this->belongsTo((Applications::class));
-    // }
+    public function applications()
+    {
+        return $this->hasOne((ServiceApplications::class));
+    }
 }

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('theme.default')
 
 @section('content')
 <div class="card-body">
@@ -35,129 +35,107 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="siteform">
-                                <!-- /////////////////////////////////////////////////////////////////////////// -->
-                                <form action="/p" method="post">
-                                    @csrf
+                            <form id="postForm" action="/p" method="post">
+                                @csrf
+                                <div class="siteform">
                                     <div class="form-row">
-                                        <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                                            <input name="name" type="text" class="form-control" placeholder="Full Name Here">
-                                            @if ($errors->has('name'))
-                                            <strong>{{ $errors->first('name') }}</strong>
-                                            @endif
-                                        </div>
-                                        <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                                            <input name="email" type="email" class="form-control" placeholder="Email Here">
-                                            @if ($errors->has('email'))
-                                            <strong>{{ $errors->first('email') }}</strong>
-                                            @endif
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                                            <input name="telephone" type="tel" class="form-control" placeholder="Phone No">
-                                            @if ($errors->has('telephone'))
-                                            <strong>{{ $errors->first('telephone') }}</strong>
-                                            @endif
-                                        </div>
-                                        <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                                            <input name="title" type="text" class="form-control" placeholder="Title">
+                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                            <input name="title" type="text" class="form-control" placeholder="Service Title">
                                             @if ($errors->has('title'))
-                                            <strong>{{ $errors->first('title') }}</strong>
+                                            <strong><font color="red">"{{ $errors->first('title') }}"</font></strong>
                                             @endif
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                                            <textarea name="description" class="form-control" placeholder="Description"></textarea>
+                                            <textarea name="description" class="form-control" placeholder="Detailed Service Description"></textarea>
                                             @if ($errors->has('description'))
-                                            <strong>{{ $errors->first('description') }}</strong>
+                                            <strong><font color="red">"{{ $errors->first('description') }}"</font></strong>
                                             @endif
                                         </div>
                                     </div>
-
-                            </div>
-                            <div class="siteform">
-
-                                <div class="form-row">
-                                    <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                                        <select id="categories_id" class="form-control" name="categories_id" required>
-                                            <option name="">Select Category</option>
-                                            @if(count($categories) > 0)
-                                            @foreach($categories as $key => $category)
-                                            <option value="{!!$category->id !!}">{!!$category->name !!}</option>
-                                            @endforeach
+                                </div>
+                                <div class="siteform">
+                                    <div class="form-row">
+                                        <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                                            <select id="categories_id" class="form-control" name="categories_id" required>
+                                                <option name="">Select Category</option>
+                                                @if(count($categories) > 0)
+                                                @foreach($categories as $key => $category)
+                                                <option value="{!!$category->id !!}">{!!$category->name !!}</option>
+                                                @endforeach
+                                                @endif
+                                            </select>
+                                            @if ($errors->has('categories_id'))
+                                            <strong><font color="red">"{{ $errors->first('categories_id') }}"</font></strong>
                                             @endif
-                                        </select>
-                                        @if ($errors->has('category'))
-                                        <strong>{{ $errors->first('category') }}</strong>
-                                        @endif
-                                    </div>
-                                    <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                                        <select id="sub_categories_id" class="form-control" name="sub_categories_id" required>
-                                            <option name="">Select Sub Category</option>
-                                            @if(count($sub_categories) > 0)
-                                            @foreach($sub_categories as $key => $subCategory)
-                                            <option value="{!!$subCategory->id !!}">{!!$subCategory->name !!}</option>
-                                            @endforeach
+                                        </div>
+                                        <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                                            <select id="sub_categories_id" class="form-control" name="sub_categories_id" required>
+                                                <option name="">Select Sub Category</option>
+                                                @if(count($sub_categories) > 0)
+                                                @foreach($sub_categories as $key => $subCategory)
+                                                <option value="{!!$subCategory->id !!}">{!!$subCategory->name !!}</option>
+                                                @endforeach
+                                                @endif
+                                            </select>
+                                            @if ($errors->has('sub_categories_id'))
+                                            <strong><font color="red">"{{ $errors->first('sub_categories_id') }}"</font></strong>
                                             @endif
-                                        </select>
-                                        @if ($errors->has('sub_category'))
-                                        <strong>{{ $errors->first('sub_category') }}</strong>
-                                        @endif
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                                            <input name="duration" type="numeric" class="form-control" placeholder="Total Working Hours">
+                                            @if ($errors->has('duration'))
+                                            <strong><font color="red">"{{ $errors->first('duration') }}"</font></strong>
+                                            @endif
+                                        </div>
+                                        <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                                            <input name="wage" type="text" class="form-control" placeholder="Charges per hour">
+                                            @if ($errors->has('wage'))
+                                            <strong><font color="red">"{{ $errors->first('wage') }}"</font></strong>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                                            <input name="date" type="date" class="form-control" placeholder="Date">
+                                            @if ($errors->has('date'))
+                                            <strong><font color="red">"{{ $errors->first('date') }}"</font></strong>
+                                            @endif
+                                        </div>
+                                        <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                                            <input name="city" class="form-control" placeholder="City">
+                                            @if ($errors->has('city'))
+                                            <strong><font color="red">"{{ $errors->first('city') }}"</font></strong>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                            <input name="street" class="form-control" placeholder="Street">
+                                            @if ($errors->has('street'))
+                                            <strong><font color="red">"{{ $errors->first('street') }}"</font></strong>
+                                            @endif
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md-offset-4 col-lg-offset-4 col-sm-offset-4 col-md-4 col-lg-4 col-sm-4 col-xs-12">
+                                            <a style="width:150px" type="submit" onclick="document.getElementById('postForm').submit()" class="btn btn-primary">
+                                                <font color="white"><span>Post</span></font><img src="/images/right-white.png">
+                                            </a>
+                                        </div>
+                                        <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
+                                            <form action="../offers">
+                                                <a style="width:150px" type="submit" href="../offers" class="btn btn-primary ">
+                                                    <font color="white"><span>Cancel</span></font>
+                                                </a>
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="form-row">
-                                    <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                                        <input name="duration" type="text" class="form-control" placeholder="Duration">
-                                        @if ($errors->has('duration'))
-                                        <strong>{{ $errors->first('duration') }}</strong>
-                                        @endif
-                                    </div>
-                                    <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                                        <input name="date" type="text" class="form-control" placeholder="Date">
-                                        @if ($errors->has('date'))
-                                        <strong>{{ $errors->first('date') }}</strong>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                                        <input name="street" class="form-control" placeholder="Street">
-                                        @if ($errors->has('street'))
-                                        <strong>{{ $errors->first('street') }}</strong>
-                                        @endif
-                                    </div>
-                                    <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                                        <input name="city" class="form-control" placeholder="City">
-                                        @if ($errors->has('city'))
-                                        <strong>{{ $errors->first('city') }}</strong>
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                                    <input name="wage" type="text" class="form-control" placeholder="Charges per hour (optional)">
-                                    @if ($errors->has('wage'))
-                                    <strong>{{ $errors->first('wage') }}</strong>
-                                    @endif
-                                </div>
-                                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                                    <input name="hours" type="text" class="form-control" placeholder="Total Number of Hours">
-                                    @if ($errors->has('hours'))
-                                    <strong>{{ $errors->first('hours') }}</strong>
-                                    @endif
-                                </div>
-                                <div class="form-row">
-                                    <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
-                                        <button type="submit" class="btn btn-primary">Cancel</button>
-                                    </div>
-                                    <div class="col-md-offset-4 col-lg-offset-4 col-sm-offset-4 col-md-4 col-lg-4 col-sm-4 col-xs-12">
-                                        <button type="submit" class="btn btn-primary"><span>Post</span><img src="/images/right-white.png"></button>
-                                    </div>
-                                </div>
-                                </form>
-                            </div>
-
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -165,20 +143,4 @@
         </div>
     </div>
 </section>
-
-<footer class="footer-global">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                <div class="copy-right">
-                    <p>Copyright © 2019 DIY-Help. All Rights Reserved.</p>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                <div class="develop">
-                    <p><span>Small Masters Project.</span></p>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
+@endsection

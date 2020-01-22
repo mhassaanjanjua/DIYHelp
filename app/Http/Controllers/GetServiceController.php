@@ -32,8 +32,8 @@ class GetServiceController extends Controller
         $data = request()->validate([
             'title' => 'required',
             'description' => 'required',
-            'categories_id' => 'required',
-            'sub_categories_id' => 'required',
+            'categories_id' => ['required', 'numeric'],
+            'sub_categories_id' => ['required', 'numeric'],
             'duration' => ['required', 'numeric'],
             'date' => ['required', 'date'],
             'street' => 'required',

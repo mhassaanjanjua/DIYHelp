@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('theme.default')
 
 @section('content')
 <div class="card-body">
@@ -9,12 +9,12 @@
     @endif
 </div>
 
-<section class="all_items">
+<section class="category">
     <div class="container">
         <div class="details-heading">
             <div class="row">
                 <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
-                    <h4>Your Order Details</h4>
+                    <h4>Service Details</h4>
                 </div>
             </div>
         </div>
@@ -24,37 +24,25 @@
                     @foreach($services as $service)
                     <div class="col-md-3 col-lg-3 col-sm-3 col-xs-12">
                         <div class="all_items-box-img">
-                            <img src="img/Thank_you.png">
+                            <img src="/images/Thank_you.png">
                         </div>
                     </div>
                     <div class="col-md-9 col-lg-9 col-sm-9 col-xs-12">
                         <div class="all_items-box-text">
-                            <h1>Order Details</h1>
                             <h2>{{ $service['title'] }}</h2>
-                            <span class="prize">50 Euro</span>
+                            <span class="prize">Hourly: €{{ $service['wage'] }}</span>
                         </div>
                         <div class="all_items-box-category">
-                            <h3>{{ $service->categories->name }}</h3>
-                            <h4>{{ $service->sub_categories->name }}</h4>
+                            <h3>Sub Category: {{ $service->sub_categories->name }}</h3>
                         </div>
                         <div class="all_items-box-text all_items-box-text-info">
-                            <h5>Addresss: {{ $service['street'] }}, {{ $service['city'] }}</h5>
+                            <h5>Description</h5>
                             <p>{{ $service['description'] }}</p>
-                            <ul>
-                                <li><span>Duration: {{ $service['duration'] }}</span> </li>
-                                <li><span>Charges Per Hour: {{ $service['wage'] }}</span> </li>
-                                <li><span>Total Number of Hours: {{ $service['duration'] }}</span> </li>
-                            </ul>
                         </div>
-
                         <div class="all_items-box-text all_items-box-text-info">
-                            <h1>User Details</h1>
-                            <p>{{ $service->user->name }}</p>
-                            <ul>
-                                <li><span>Phone number: ((Add Rating Here))</span> </li>
-                                <li><span>Email ID: ((Add Email ID Here))</span> </li>
-                                <li><span>Rating: ((Add Rating Here))</span> </li>
-                            </ul>
+                            <p style="font-size:150%;"><b>City: </b><span>{{ $service['city'] }}</span> </p>
+                            <p style="font-size:150%;"><b>Total Hours: </b><span>{{ $service['duration'] }}</span> </p>
+                            <p style="font-size:150%;"><b>Posted By: </b><span> {{ $service->user->name }}</span> </p>
                         </div>
 
                     </div>
@@ -68,20 +56,23 @@
                 <div class="col-md-3 col-lg-3 col-sm-3 col xs-12">
                 </div>
                 <div class="col-md-3 col-lg-3 col-sm-3 col xs-12">
-                    <div class="acknowledge-box-button">
-                        <a href="services/" class="btn btn-primary back"><span>Back (Fix This!!!)</span></a>
-                    </div>
+                    <form action="../services">
+                        <div class="acknowledge-box-button">
+                            <button style="height:50px;width:200px" type="submit" href="../services" class="btn btn-primary e"><span>Back</span></button>
+
+                        </div>
+                    </form>
                 </div>
                 <div class="col-md-3 col-lg-3 col-sm-3 col xs-12">
                     <form action="/details" method="post">
                         @csrf
                         <div class="acknowledge-box-button">
                             @foreach($services as $service)
-                            <input  name="get_services_id" value="{{$service->id}}">
-                            <input  name="user_id" value="{{Auth::user()->id}}">
-                            <input  name="status" value="waiting">
+                            <input type="hidden" name="get_services_id" class="form-control" value="{{$service->id}}">
+                            <input type="hidden" name="user_id" class="form-control" value="{{Auth::user()->id}}">
+                            <input type="hidden" name="status" class="form-control" value="waiting">
 
-                            <button  type="submit" class="btn btn-primary edit"><span>Apply</span></button>
+                            <button style="height:50px;width:200px" type="submit" class="btn btn-primary edit"><span>Apply</span></button>
                             @endforeach
                         </div>
                     </form>
@@ -92,3 +83,4 @@
         </div>
     </div>
 </section>
+@endsection

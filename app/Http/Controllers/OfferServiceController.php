@@ -27,12 +27,15 @@ class OfferServiceController extends Controller
         $data = request()->validate([
             'profession' => 'required',
             'description' => 'required',
-            'categories_id' => 'required',
-            'sub_categories_id' => 'required',
+            'categories_id' =>  ['required', 'numeric'],
+            'sub_categories_id' =>  ['required', 'numeric'],
             'availability_hours' => ['required', 'numeric'],
             'availability_days' => ['required', 'date'],
             'charges' => 'numeric',
             'total_hours' => ['required', 'numeric'],
+        ],
+        ['categories_id.required' => 'Please select any Category',
+        'sub_categories_id.required' => 'Please select any Sub Category',
         ]);
 
         auth()->user()->offers()->create($data);

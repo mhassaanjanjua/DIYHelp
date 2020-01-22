@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('theme.default')
 
 @section('content')
 <div class="container">
@@ -14,7 +14,9 @@
                                 <div class="row">
                                     <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
                                         <h2>Sign In</h2>
-                                        <p>Already have an account? Sign Up</p>
+                                        <p>Don't have an account? <a href="{{ route('register') }}">
+                                                <i> {{ __('Register') }}</i>
+                                            </a></p>
                                     </div>
                                 </div>
                             </div>
@@ -74,6 +76,11 @@
                         </div>
                     </div>
                 </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
             </section>
         </div>
     </div>
