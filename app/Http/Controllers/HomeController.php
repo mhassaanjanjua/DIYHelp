@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\ServiceApplications;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +25,19 @@ class HomeController extends Controller
      */
     public function index()
     {
+       
         return view('home');
+    }
+
+    public function contactus()
+    {
+       
+        return view('contactus');
+    }
+
+    public function about()
+    {
+       
+        return view('about');
     }
 }
