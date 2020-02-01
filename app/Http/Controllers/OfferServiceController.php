@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\OfferService;
+use App\SubCategories;
 use Illuminate\Http\Request;
 
 class OfferServiceController extends Controller
@@ -18,8 +19,14 @@ class OfferServiceController extends Controller
     {
 
         $this->_assignData['categories'] = \DB::table('categories')->get();
-        $this->_assignData['sub_categories'] = \DB::table('sub_categories')->get();
         return view('post.create-offer', $this->_assignData);
+    }
+
+    public function get_SubCategories(Request $request)
+    {
+
+        $data = SubCategories::select('name', 'id')->where('categories_id', $request->id)->take(100)->get();
+        return response()->json($data); //then sent this data to ajax success
     }
 
     public function store()

@@ -20,6 +20,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/contactus', 'HomeController@contactus');
 Route::get('/about', 'HomeController@about');
+Route::get('/profile', 'HomeController@profile');
+Route::get('/profile', 'HomeController@acceptApplication')->name('acceptedOrders');
+// Route::get('/profile', 'OrdersController@orderGenerated')->name('orderGenerated');
 
 Route::get('/categories', 'CategoriesController@index')->name('categories');
 
@@ -34,6 +37,7 @@ Route::get('/applications', 'ServiceApplicationsController@index')->name('applic
 
 
 Route::get('/p/create-service', 'GetServiceController@create');
+Route::get('/getSubCategories', 'GetServiceController@getSubCategories');
 Route::post('/p', 'GetServiceController@store');
 
 Route::get('/offers', 'OffersController@index');
@@ -44,12 +48,13 @@ Route::get('/approve', 'ServiceApplicationsController@approve')->name('approveAp
 Route::post('/approve', 'OrdersController@acceptApplication')->name('approve');
 Route::post('/approves', 'OrdersController@rejectApplication')->name('reject');
 
-Route::get('/orders', 'OrdersController@acceptedOrders')->name('acceptedOrders');
-Route::get('/order', 'OrdersController@orderGenerated')->name('orderGenerated');
+// Route::get('/orders', 'OrdersController@acceptedOrders')->name('acceptedOrders');
+// Route::get('/order', 'OrdersController@orderGenerated')->name('orderGenerated');
 
 // Route::get('/offers', 'OffersController@index');
 
 Route::get('/o/create-offer', 'OfferServiceController@create');
+Route::get('/get_SubCategories', 'OfferServiceController@get_SubCategories');
 Route::post('/o', 'OfferServiceController@store');
 
 // Route::get('/notification', 'OrdersController@notification')->name('notification');
