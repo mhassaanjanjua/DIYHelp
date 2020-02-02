@@ -40,6 +40,14 @@
                                             @enderror
                                         </div>
                                         <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                            <input id="username" type="username" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" placeholder="Type your username Here">
+                                            @error('username')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                                             <input id="date_of_birth" type="date" class="form-control @error('date_of_birth') is-invalid @enderror" name="date_of_birth" value="{{ old('date_of_birth') }}" required autocomplete="date_of_birth" autofocus placeholder="Date of Birth">
                                             @error('date_of_birth')
                                             <span class="invalid-feedback" role="alert">
@@ -72,12 +80,7 @@
                                 <div class="row">
                                     <div class="col-md-12 col-lg-12 col-sm-12 col xs-12">
                                         <div class="sign_up_form_button_facebook">
-                                            <a href="confirmation_msg.html" class="btn btn-primary"><span>Continue with Facebook</span></a>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12 col-lg-12 col-sm-12 col xs-12">
-                                        <div class="sign_up_form_button_google">
-                                            <a href="confirmation_msg.html" class="btn btn-primary"><span>Continue with Google</span></a>
+                                            <a href="/login/facebook" class="btn btn-primary"><span>Continue with Facebook</span></a>
                                         </div>
                                     </div>
                                 </div>

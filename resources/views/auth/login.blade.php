@@ -63,11 +63,6 @@
                                                         <a href="/login/facebook" class="btn btn-primary"><span>Continue with Facebook</span></a>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-12 col-lg-12 col-sm-12 col xs-12">
-                                                    <div class="sign_in_form_button_google">
-                                                        <a href="cconfirmation_msg.html" class="btn btn-primary"><span>Continue with Google</span></a>
-                                                    </div>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
