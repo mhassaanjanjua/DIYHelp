@@ -8,8 +8,6 @@ use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Socialite\Facades\Auth;
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class LoginController extends Controller
 {
@@ -61,7 +59,7 @@ class LoginController extends Controller
     public function handleProviderCallback()
     {
 
-        $userSocial = Socialite::driver('facebook')->user();
+        $userSocial = Socialite::driver('facebook')->stateless()->user();
 
         //check if user exists and log user in
 
@@ -72,14 +70,12 @@ class LoginController extends Controller
                 return $user->id;
             }
         }
-
-
+        
         //else sign the user up
         $userSignup = User::create([
             'name' => $userSocial->user['name'],
             'email' => $userSocial->user['email'],
             'password' => $userSocial->user['id'],
-            'date_of_birth' => '2000.01.01'
             // 'password' => Hash::make($userSocial ->user ['id'])
         ]);
 
@@ -89,40 +85,5 @@ class LoginController extends Controller
                 return redirect()->route('home');
             }
         }
-
-
-
-
-        // $newUser = dd($userSocial);
-        // return $newUser;
-
-        // $driver = Socialite::driver('facebook')->fields([
-        //     'name',
-        //     'id',
-        //     'first_name',
-        //     'last_name',
-        //     'email',
-        //     'verified',
-        //     'birthday'
-        //     ]);
-        // // retrieve the user
-        // $userSocial = $driver->user();
-        // $userSocial = Socialite::driver('facebook')->user();
-
-        // return $userSocial->name;
-
-        // $user = new User;
-
-        // $user -> first_name = $userSocial->user['first_name'];
-        // $user -> first_name = $userSocial->user['last_name'];
-        // $user -> email = $userSocial->user['email'];
-        // $user -> username = $userSocial->user['first_name'];
-        // $user -> date_of_birth = $userSocial->user['birthday'];
-        // $user -> password = $userSocial->user['id'];
-        // $user->save();
-
-        // Auth::login($userSocial->email);
-        // return 'done';
-
     }
 }

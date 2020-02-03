@@ -47,36 +47,10 @@
         <div class="row">
             <div class="col-md-12 col-lg-12 col-sm-12 col xs-12">
                 <div class="acknowledge-box-button">
-                    <a href="../p/create-service" class="btn btn-primary"><span>Post an Ad</span><img src="/images/right-white.png"></a>
+                    <a href="../p/create-service" class="btn btn-primary"><span>Create a Service</span><img src="/images/right-white.png"></a>
                 </div>
             </div>
         </div>
-        <!-- <div class="pagination">
-            <div class="row">
-                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                    <ul class="page_navi">
-                        <li>
-                            <a href="javascript:;">Pages</a>
-                        </li>
-                        <li class="current">
-                            <a href="javascript:;">1</a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">2</a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">3</a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">4</a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">5</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div> -->
     </div>
 </section>
 @endsection

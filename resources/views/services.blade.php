@@ -29,12 +29,12 @@
                         </div>
                         <div class="col-md-9 col-lg-9 col-sm-9 col-xs-12">
                             <div class="all_items-box-text">
-                                <h2>{{ $service['title'] }}</h2>
-                                <span class="prize">Hourly: €{{ $service['wage'] }}</span>
+                                <h2>{{ $service->title }}</h2>
+                                <span class="prize">Hourly: €{{ $service->wage }}</span>
                             </div>
                             <div class="all_items-box-text">
-                                <p>{{ $service['description'] }}</p>
-                                <span class="prize">Posted on: {{ $service['created_at']->format('d.m.Y') }}</span>
+                                <p>{{ $service->description }}</p>
+                                <span class="prize">Posted on: {{ $service->created_at }}</span>
                             </div>
                         </div>
                     </div>
@@ -48,35 +48,57 @@
     <div class="row">
         <div class="col-md-12 col-lg-12 col-sm-12 col xs-12">
             <div class="acknowledge-box-button">
-                <a href="../o/create-offer" class="btn btn-primary"><span>Post an Ad</span><img src="/images/right-white.png"></a>
+                <a href="../o/create-offer" class="btn btn-primary"><span>Create an Offer</span><img src="/images/right-white.png"></a>
             </div>
         </div>
     </div>
-    <!-- <div class="pagination">
-            <div class="row">
-                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                    <ul class="page_navi">
-                        <li>
-                            <a href="javascript:;">Pages</a>
-                        </li>
-                        <li class="current">
-                            <a href="javascript:;">1</a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">2</a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">3</a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">4</a>
-                        </li>
-                        <li>
-                            <a href="javascript:;">5</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(document).on('change', '.categories_id', function() {
+                var cat_id = $(this).val();
+                var div = $(this).parent().parent();
+                var op = " ";
+
+                $.ajax({
+                    type:'get',
+                    url:'{!!URL::to('getSubCategories')!!}',
+                    data:{'id':cat_id},
+                    success:function(data) {
+                        op += '<option value="0" selected disabled> Choose SubCategory </option>';
+                        for (var i = 0; i < data.length; i++) {
+                            op += '<option value = "' + data[i].id + '">' + data[i].name + '</option>';
+                        }
+                        div.find('.sub_categories_id').html(" ");
+                        div.find('.sub_categories_id').append(op);
+                    },
+                    error:function() {}
+                });
+            });
+
+            $(document).on('change', '.sub_categories_id', function() {
+                var sub_cat_id = $(this).val();
+                var a = $(this).parent().parent();
+                var op = "";
+
+                console.log("Sub");
+                console.log(sub_cat_id);
+
+                $.ajax({
+                    type:'get',
+                    url:'{!!URL::to('getServices')!!}',
+                    servicedata:{'id':sub_cat_id},
+                    success:function(data) {
+                        console.log("Success");
+                        console.log(data[0].id);
+                        console.log(data[0].title);
+                    },
+                    error:function() {}
+                });
+            });
+        });
+    </script>
 </section>
 @endsection
