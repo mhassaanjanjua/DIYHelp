@@ -90,24 +90,6 @@
         </div>
 
         @endif
-        <div class="all_items-box-order-detail-button">
-            <div class="row">
-                <div class="col-md-3 col-lg-3 col-sm-3 col xs-12">
-                </div>
-                <div class="col-md-3 col-lg-3 col-sm-3 col xs-12">
-                    <div class="acknowledge-box-button">
-                        <a href="services/" class="btn btn-primary back"><span>Back (Fix This!!!)</span></a>
-                    </div>
-                </div>
-                <div class="col-md-3 col-lg-3 col-sm-3 col xs-12">
-                    <div class="acknowledge-box-button">
-                        <a href="../notification" class="btn btn-primary edit"><span>Apply</span></a>
-                    </div>
-                </div>
-
-                <div class="col-md-3 col-lg-3 col-sm-3 col xs-12">
-                </div>
-            </div>
-        </div>
+       
     </div>
 </section>
