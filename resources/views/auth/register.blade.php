@@ -19,7 +19,7 @@
                     <div class="row">
                         <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 border_left">
                             <div class="sign_up_form">
-                                <form method="POST" action="{{ route('register') }}">
+                                <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                                     @csrf
 
                                     <div class="row">
@@ -42,6 +42,14 @@
                                         <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                                             <input id="username" type="username" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required autocomplete="username" placeholder="Type your username Here">
                                             @error('username')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                        <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                                            <input id="avatar" type="file" class="form-control @error('avatar') is-invalid @enderror" name="avatar" autofocus placeholder="Please Upload your avatar">
+                                            @error('avatar')
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $message }}</strong>
                                             </span>
