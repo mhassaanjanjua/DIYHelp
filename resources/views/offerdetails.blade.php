@@ -67,7 +67,7 @@
                         @csrf
                         <div class="acknowledge-box-button">
                             @foreach($offers as $offer)
-                            <input type="hidden" name="get_offers_id" class="form-control" value="{{$offer->id}}">
+                            <input type="hidden" name="offer_services_id" class="form-control" value="{{$offer->id}}">
                             <input type="hidden" name="user_id" class="form-control" value="{{Auth::user()->id}}">
                             <input type="hidden" name="status" class="form-control" value="waiting">
 

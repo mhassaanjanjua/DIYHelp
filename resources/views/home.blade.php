@@ -4,17 +4,23 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DIY HELP</title>
-    <link rel="stylesheet" href="{!! asset('css/bootstrap.css') !!}">
-    <link rel="stylesheet" href="{!! asset('css/slick.css') !!}">
-    <link rel="stylesheet" href="{!! asset('css/slick-theme.css') !!}">
-    <link rel="stylesheet" href="{!! asset('css/lightgallery.css') !!}">
-    <link rel="stylesheet" href="{!! asset('css/font-awesome.css') !!}">
-    <link rel="stylesheet" href="{!! asset('css/style.css') !!}">
-    <link rel="stylesheet" href="{!! asset('css/responsive.css') !!}">
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/main.js') }}" defer></script>
+
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 
-<body>
 @include('theme.header')
+
+<body>
     <section class="process">
         <div class="container">
             <div class="row">
@@ -89,7 +95,7 @@
                 <div class="no-pad col-md-4 col-lg-4 col-sm-4 col-xs-12">
                     <div class="help-box">
                         <div class="help-box-inner">
-                            <a href="o/create-offer">
+                            <a href="services">
                                 <img src='/images/s3.png' class="img-responsive" />
                             </a>
                         </div>
@@ -101,17 +107,11 @@
 
 
     <footer class="home-footer">
-        <script src="{!! asset('js/jquery-3.4.1.min.js') !!}"></script>
-        <script src="{!! asset('js/bootstrap.js') !!}"></script>
-        <script src="{!! asset('js/slick.js') !!}"></script>
-        <script src="{!! asset('js/lightgallery-all.min.js') !!}"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/particlesjs/2.2.2/particles.min.js"></script>
-        <script src="{!! asset('js/main.js') !!}"></script>
-        <div class="container">
+        <div class="container" >
             <div class="row">
-                <div class="col-md-offset-4 col-lg-offset-4 col-sm-offset-4 col-md-4 col-lg-4 col-sm-4 col-xs-12">
+                <div class="col-md-offset-12 col-lg-offset-12 col-sm-offset-12 col-md-4 col-lg-12 col-sm-4 col-xs-12">
                     <div class="play-icon">
-                        <a href="get_help_video.html">
+                        <a href="/videohelp">
                             <img src="images/play-icon.png" />
                             <span>WE MAKE A DIFFERENCE</span>
                         </a>
@@ -135,5 +135,6 @@
             </div>
         </div>
     </footer>
+</body>
 
 </html>
