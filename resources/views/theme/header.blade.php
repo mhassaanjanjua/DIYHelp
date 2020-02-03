@@ -1,6 +1,7 @@
 <div class="sub-header">
 	<div class="container">
 		<div class="row">
+
 			<div class="col-md-7 col-sm-7 col-lg-7 col-xs-12">
 				<div class="gen-info">
 					<ul class="general-info">
@@ -23,6 +24,7 @@
 					</ul>
 				</div>
 			</div>
+
 
 			<div class="col-md-5 col-sm-5 col-lg-5 col-xs-12">
 
@@ -49,14 +51,19 @@
 							</a>
 
 							<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-								<a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+								<div class="dropdown-content">
+									<a class="dropdown-item" href="../profile">Profile</a>
+									<a class="dropdown-item" href="../applications">All Orders</a>
+									<a class="dropdown-item" href="../services">All Services</a>
+									<a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
 									document.getElementById('logout-form').submit();">
-									{{ __('Logout') }}
-								</a>
+										{{ __('Logout') }}
+									</a>
 
-								<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-									@csrf
-								</form>
+									<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+										@csrf
+									</form>
+								</div>
 							</div>
 						</li>
 						@endguest
@@ -100,17 +107,6 @@
 					</ul>
 				</div>
 			</div>
-			<!-- <div class="col-md-3 col-sm-3 col-lg-3 col-xs-12">
-					<div class="search">
-						<form class="searchform" name="searchform" id="searchform">
-							<input type="search" name="s" class="search" id="search" placeholder="Search...">
-							<span class="searchformsubmit">
-								<input type="submit" name="searchformsubmit" value="">
-								<i class="fa fa-search"></i>
-							</span>
-						</form>
-					</div>
-				</div> -->
 		</div>
 		<div class="row">
 			<div class="col-md-12 col-lg-12 col-xs-12">
@@ -119,11 +115,8 @@
 						<h3>We connect house holds with professionals</h3>
 						<!-- Authentication Links -->
 						<p>DIY Help provides platform to domestic households with professionals.</p>
-
 					</div>
-
 				</div>
 			</div>
-
 		</div>
 </header>
