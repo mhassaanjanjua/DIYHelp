@@ -7,72 +7,49 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
-## About Laravel
+## About DIY Help
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+DIY Help offers a platform which would connect a household with a skilled individual. People can share their skills as a freelancer and might also share their equipment with others. The idea is based on the concept of Fab Labs or Maker Spaces where individuals share tools and equipment to fulfill their needs
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Steps to run DIY Help Project
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Run the below mentioned commands on a terminal:
+- git clone https://github.com/mhassaanjanjua/DIYHelp.git/ DIYHelp
+- cd DIYHelp
+- composer install
+- npm install
+- cp .env.example .env
+- php artisan key:generate
 
-## Learning Laravel
+Now, 
+- Create a database in your localhost webserver. 
+- Open .env file and fill in DB_HOST, DB_PORT, DB_DATABASE, DB_USERNAME, and DB_PASSWORDDB_DATABASE options to match the credentials of the database you just created.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Now, open the terminal again and run the below mentioned commands:
+- php artisan cache:clear
+- php artisan migrate
+- php artisan db:seed
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Note
+You might need to add Categories and Sub-categories to interact with the application in more detailed manner.
+For that, you can run below mentioned commands to add 1 category and 1 sub category.
 
-## Laravel Sponsors
+- php artisan tinker
+- $category = new \App\Categories();
+- $category-> = 'Home Renovation';
+- $category-> description = 'Home improvement has all the services for people wanting to imprve their homes with DIY-Help';
+- $category->save();
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+After running last four commands, 1 category with the name 'Home Renovation' is added in to your database.
+If you want to add more categories then just repeat these commands and update the values of name and description.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
+- $subCat = new \App\SubCategories();
+- $subCat->name = 'Door Renovation';
+- $subCat->description = 'With Home Improvement, DIY-Help offers people get help for door renovation';
+- $subCat->categories_id = 1;
+- $subCat->save();
 
-## Contributing
+After running these five commands, 1 sub category with the name 'Door Renovation' is added in to your database.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+If you want to add more subcategories then repeat the above commands and update the values of name, description and categories_id. Make sure that you enter the correct categories_id because in this way, you are linking the new added sub category to the main category of which you entered the id.
 
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
