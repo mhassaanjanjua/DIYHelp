@@ -8,20 +8,14 @@ use Illuminate\Http\Request;
 
 class OrdersController extends Controller
 {
-    //
-    // public function notification()
-    // {
-
-    //     return view('/notification');
-    // }
-
+  
     public function acceptApplication(Request $request)
     {
 
         $applications_id = $request->input('applications_id');
         $status = $request->input('status');
         $service_id = $request->input('get_services_id');
-
+        
         \DB::table('orders')->insertGetId(
             ['applications_id' => $applications_id, 'status' => $status]
         );
@@ -52,7 +46,6 @@ class OrdersController extends Controller
     {
 
         if ($request->input('get_services_id') != null) {
-            echo("GetServices Alert!!!!!!!!!");
             $get_services_id = $request->input('get_services_id');
             \DB::table('service_applications')->where('get_services_id', $get_services_id)->delete();
             \DB::table('get_services')->where('id', $get_services_id)->delete();
@@ -61,8 +54,6 @@ class OrdersController extends Controller
             return view('/profile', ['applications' => $applications]);
 
         } else if ($request->input('offer_services_id') != null) {
-            echo("OfferServices Alert!!!!!!!!!");
-
             $offer_services_id = $request->input('offer_services_id');
 
             \DB::table('service_applications')->where('offer_services_id', $offer_services_id)->delete();

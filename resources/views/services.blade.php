@@ -10,6 +10,15 @@
 </div>
 <section class="category">
     <div class="container">
+        <div class="catagory-heading">
+            <div class="row">
+                <div class="col-md-10 col-lg-10 col-sm-10 col-xs-12">
+                </div>
+                <div class="col-md-2 col-lg-2 col-sm-2 col-xs-12">
+                    <a href="../o/create-offer" class="btn btn-primary"><span>Create an Offer</span><img src="/images/right-white.png"></a>
+                </div>
+            </div>
+        </div>
         @if (count($services) == 0)
         <div class="all_items-box">
             <div class="item-box" align="center">
@@ -24,7 +33,24 @@
                     <div class="row">
                         <div class="col-md-3 col-lg-3 col-sm-3 col-xs-12">
                             <div class="all_items-box-img">
-                                <img src="/images/Thank_you.png">
+                                @if($service->categories_id == 1)
+                                <img src="/images/home-improvement1.png" height="200" width="200">
+                                
+                                @elseif($service->categories_id == 2)
+                                <img src="/images/garden.jpeg" height="200" width="200">
+
+                                @elseif($service->categories_id == 3)
+                                <img src="/images/pool.png" height="200" width="200">
+
+                                @elseif($service->categories_id == 4)
+                                <img src="/images/electric.png" height="200" width="200">
+
+                                @elseif($service->categories_id == 5)
+                                <img src="/images/water.png" height="200" width="200">
+
+                                @elseif($service->categories_id == 6)
+                                <img src="/images/family and child support.png" height="200" width="200">
+                                @endif
                             </div>
                         </div>
                         <div class="col-md-9 col-lg-9 col-sm-9 col-xs-12">
@@ -45,14 +71,9 @@
         @endif
 
     </div>
-    <div class="row">
-        <div class="col-md-12 col-lg-12 col-sm-12 col xs-12">
-            <div class="acknowledge-box-button">
-                <a href="../o/create-offer" class="btn btn-primary"><span>Create an Offer</span><img src="/images/right-white.png"></a>
-            </div>
-        </div>
-    </div>
-
+    <br>
+    <br>
+    <br>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
     <script type="text/javascript">
@@ -63,10 +84,13 @@
                 var op = " ";
 
                 $.ajax({
-                    type:'get',
-                    url:'{!!URL::to('getSubCategories')!!}',
-                    data:{'id':cat_id},
-                    success:function(data) {
+                    type: 'get',
+                    url: '{!!URL::to('
+                    getSubCategories ')!!}',
+                    data: {
+                        'id': cat_id
+                    },
+                    success: function(data) {
                         op += '<option value="0" selected disabled> Choose SubCategory </option>';
                         for (var i = 0; i < data.length; i++) {
                             op += '<option value = "' + data[i].id + '">' + data[i].name + '</option>';
@@ -74,7 +98,7 @@
                         div.find('.sub_categories_id').html(" ");
                         div.find('.sub_categories_id').append(op);
                     },
-                    error:function() {}
+                    error: function() {}
                 });
             });
 
@@ -87,15 +111,18 @@
                 console.log(sub_cat_id);
 
                 $.ajax({
-                    type:'get',
-                    url:'{!!URL::to('getServices')!!}',
-                    servicedata:{'id':sub_cat_id},
-                    success:function(data) {
+                    type: 'get',
+                    url: '{!!URL::to('
+                    getServices ')!!}',
+                    servicedata: {
+                        'id': sub_cat_id
+                    },
+                    success: function(data) {
                         console.log("Success");
                         console.log(data[0].id);
                         console.log(data[0].title);
                     },
-                    error:function() {}
+                    error: function() {}
                 });
             });
         });

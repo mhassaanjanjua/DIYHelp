@@ -26,7 +26,24 @@
             <div class="col-md-4 col-lg-4 col-sm-4 col-xs-12">
                 <a href="{{ url('/services') }}/{{$sub_category->id}}">
                     <div class="catagory-box">
-                        <img src="/images/Door-Renovation.png">
+                        @if($sub_category->categories_id == 1)
+                        <img src="/images/home-improvement1.png">
+                        
+                        @elseif($sub_category->categories_id == 2)
+                        <img src="/images/garden.jpeg">
+
+                        @elseif($sub_category->categories_id == 3)
+                        <img src="/images/pool.png">
+
+                        @elseif($sub_category->categories_id == 4)
+                        <img src="/images/electric.png">
+
+                        @elseif($sub_category->categories_id == 5)
+                        <img src="/images/water.png">
+
+                        @elseif($sub_category->categories_id == 6)
+                        <img src="/images/family and child support.png">
+                        @endif
                         <h2>{{ $sub_category['name'] }}</h2>
                         <p>{{ $sub_category['description'] }}</p>
                     </div>
