@@ -1,17 +1,10 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
-
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+<h1 align="center">DIY Help</h1>
 
 ## About DIY Help
 
 DIY Help offers a platform which would connect a household with a skilled individual. People can share their skills as a freelancer and might also share their equipment with others. The idea is based on the concept of Fab Labs or Maker Spaces where individuals share tools and equipment to fulfill their needs
 
-## Steps to run DIY Help Project
+## Guide to run DIY Help Project
 
 Run the below mentioned commands on a terminal:
 - git clone https://github.com/mhassaanjanjua/DIYHelp.git/ DIYHelp
