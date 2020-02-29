@@ -34,28 +34,18 @@
                         <div class="col-md-7 col-lg-7 col-sm-7 col-xs-12">
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-xs-12 col-sm-6 col-md-6">
+                                    <div class="col-sm-12 col-md-12 col-xs-12">
                                         <div class="well well-sm">
                                             <div class="row">
-                                                <div class="col-sm-6 col-md-8">
-                                                    <h3>{{ Auth::user()->name }}</h3>
-                                                    <p>
-                                                        <h3 class="glyphicon glyphicon-envelope">
-                                                            </h33>{{ Auth::user()->email }}
-                                                    </p>
-                                                    <p>
-                                                        <h3 class="glyphicon glyphicon-user"></h3>Username...
-                                                    </p>
-                                                    <p>
-                                                        <h3 class="glyphicon glyphicon-calendar"></h3>{{ Auth::user()->date_of_birth }}
-                                                    </p>
-                                                    <p>
-                                                        <h4 class="glyphicon glyphicon-phone"> <label data-editable1 id="editable"> Contact Num... </h4>
-                                                    </p>
-                                                    <p>
-                                                        <h3 class="glyphicon glyphicon-star"></h3>Reviews.. .
-                                                    </p>
-                                                    <button editbtn class="button button1">Edit </button>
+                                                <div class="col-sm-12 col-md-12 col-xs-12">
+                                                    <br>
+                                                    <h4> Name: {{ Auth::user()->name }}</h4>
+                                                    <p></p>
+                                                    <h4> Email Address: {{ Auth::user()->email }}</h4>
+                                                    <p></p>
+                                                    <h4> Username: {{ Auth::user()->username }}</h4>
+                                                    <p></p>
+                                                    <h4> Date of Birth:{{ Auth::user()->date_of_birth }}
                                                 </div>
                                             </div>
                                         </div>
@@ -363,7 +353,7 @@
             @else
             <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
                 <div class="all_items-box-text">
-                    <h1>You have not applied to any job.</h1>
+                    <h1>You do not any jobs to manage.</h1>
                 </div>
             </div>
             @endif
@@ -394,8 +384,6 @@
                             </div>
                             <div class="all_items-box-category">
                                 <p style="font-size:200%;"><b>Service Description: </b><span>{{ $order->get_services->description }}</span></p>
-                                <!-- <h3>Service Description: {{ $order->get_services->description }}</h3> -->
-                                <!-- <h4>Service Location: {{ $order->get_services->city }}</h4> -->
 
                             </div>
 
@@ -406,17 +394,8 @@
                                 <h1></h1>
                             </div>
                             <div class="all_items-box-text all_items-box-text-info">
-                                <p style="font-size:150%;"><b>City: </b><span>{{ $app->get_services->city }}</span> </p>
-
                                 <p style="font-size:150%;"><b>Applied On: </b><span> {{ $app['created_at']->format('d.m.Y') }}</span> </p>
                             </div>
-                            <!-- <div class="all_items-box-text">
-                                <h3>Application Applied By</h3>
-                                <h3>User Name: {{ $order->user->name }}</h3>
-                            </div>
-                            <div class="all_items-box-category">
-                                <h3>User Email: {{ $order->user->email }}</h3>
-                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -435,55 +414,19 @@
                                 <span class="prize">Service wage: {{ $order->offer_services->wage  }}</span>
                             </div>
                             <div class="all_items-box-category">
-                                <p style="font-size:200%;"><b>Service Description: </b><span>{{ $order->offer_services->description }}</span></p>
-                                <!-- <h3>Service Description: {{ $order->get_services->description }}</h3> -->
-                                <!-- <h4>Service Location: {{ $order->get_services->city }}</h4> -->
+                                <p style="font-size:200%;"><b>Service Description: </b><span>{{ $order->offer_services->description }}</span></p>                         
                                 <h1></h1>
                             </div>
 
                             <div class="all_items-box-category">
-                                <p style="font-size:180%;"><b>Service Provider Email: </b><a href="mailto:{{ $order->offer_services->user->email  }}" style="color:cadetblue"><span>{{ $order->get_services->user->email  }}</span></a></p>
+                                <p style="font-size:180%;"><b>Service Provider Email: </b><a href="mailto:{{ $order->offer_services->user->email  }}" style="color:cadetblue"><span>{{ $order->offer_services->user->email  }}</span></a></p>
                                 <p style="font-size:180%;"><b>My Email: </b><span>{{ $order->user->email }}</span></p>
 
                                 <h1></h1>
                             </div>
-                            <div class="all_items-box-text all_items-box-text-info">
-                                <p style="font-size:150%;"><b>City: </b><span>{{ $app->offer_services->city }}</span> </p>
 
-                                <p style="font-size:150%;"><b>Applied On: </b><span> {{ $app['created_at']->format('d.m.Y') }}</span> </p>
-                            </div>
                         </div>
-                    </div>
-
-                    <!-- <div class="row">
-                        <div class="col-md-9 col-lg-9 col-sm-9 col-xs-12">
-                            <div class="all_items-box-text">
-                                <h1>Get Service Application Details</h1>
-                                <h2>Service Title: {{ $order->offer_services->title }}</h2>
-                                <span class="prize">Service wage: {{ $order->offer_services->wage }}</span>
-                            </div>
-                            <div class="all_items-box-category">
-                                <h3>Service Description: {{ $order->offer_services->description }}</h3>
-                                <h4>Service Location: {{ $order->offer_services->city }}</h4>
-                                <h1></h1>
-                            </div>
-                            <div class="all_items-box-text">
-                                <h1>Application Posted By</h1>
-                                <h2>User Name: {{ $order->offer_services->user->name }}</h2>
-                            </div>
-                            <div class="all_items-box-category">
-                                <h3>User Email: {{ $order->offer_services->user->email }}</h3>
-                                <h1></h1>
-                            </div>
-                            <div class="all_items-box-text all_items-box-text-info">
-                                <p style="font-size:150%;"><b>City: </b><span>{{ $app->get_services->city }}</span> </p>
-
-                                <p style="font-size:150%;"><b>Applied On: </b><span> {{ $app['created_at']->format('d.m.Y') }}</span> </p>
-                            </div>
-                        </div>
-                        <div class="all_items-box-category">
-                        </div> 
-                    </div> -->
+                    </div>       
                 </div>
             </div>
         </div>

@@ -4,10 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\GetService;
+use App\ServiceApplications;
 
 class ServicesController extends Controller
 {
-    //
+
     public function index()
     {
 
@@ -43,7 +44,9 @@ class ServicesController extends Controller
     {
 
         $services = GetService::latest()->where('id', '=', $selectedService)->get();
-        return view('/details', ['services' => $services]);
+        $applications = ServiceApplications::latest()->get();
+        return view('/details', compact(['services', 'applications']));
+        
     }
 
 }

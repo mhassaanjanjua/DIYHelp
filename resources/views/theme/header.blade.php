@@ -7,7 +7,7 @@
 					<ul class="general-info">
 						<li>
 							<a href="tel:+(49) 176 576 665">
-								<i class="fa fa-phone"></i><span> Phone: +(49) 176 576 80665</span>
+								<i class="fa fa-phone"></i><span> Phone: +(49) 176 012 34567</span>
 							</a>
 						</li>
 						<li>
@@ -52,9 +52,7 @@
 
 							<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 								<div class="dropdown-content">
-									<a class="dropdown-item" href="../profile">Profile</a>
-									<a class="dropdown-item" href="../applications">All Orders</a>
-									<a class="dropdown-item" href="../services">All Services</a>
+									<a class="dropdown-item" href="../profile">Profile</a>								
 									<a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
 									document.getElementById('logout-form').submit();">
 										{{ __('Logout') }}

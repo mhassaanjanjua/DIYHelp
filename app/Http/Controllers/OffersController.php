@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\OfferService;
+use App\ServiceApplications;
 use Illuminate\Http\Request;
 
 class OffersController extends Controller
@@ -32,6 +33,8 @@ class OffersController extends Controller
     {
 
         $offers = OfferService::latest()->where('id', '=', $selectedService)->get();
-        return view('/offerdetails', ['offers' => $offers]);
+        $applications = ServiceApplications::latest()->get();
+        return view('/offerdetails', compact(['offers', 'applications']));
+
     }
 }

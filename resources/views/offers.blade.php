@@ -10,6 +10,16 @@
 </div>
 <section class="category">
     <div class="container">
+        <div class="catagory-heading">
+            <div class="row">
+                <div class="col-md-10 col-lg-10 col-sm-10 col-xs-12">
+                </div>
+                <div class="col-md-2 col-lg-2 col-sm-2 col-xs-12">
+                    <a href="../p/create-service" class="btn btn-primary"><span>Create a Service</span><img src="/images/right-white.png"></a>
+                </div>
+            </div>
+        </div>
+        
         @if (count($offers) == 0)
         <div class="all_items-box">
             <div class="item-box" align="center">
@@ -24,7 +34,24 @@
                     <div class="row">
                         <div class="col-md-3 col-lg-3 col-sm-3 col-xs-12">
                             <div class="all_items-box-img">
-                                <img src="/images/Thank_you.png">
+                                @if($offer->categories_id == 1)
+                                <img src="/images/home-improvement1.png" height="200" width="200">
+                                
+                                @elseif($offer->categories_id == 2)
+                                <img src="/images/garden.jpeg" height="200" width="200">
+
+                                @elseif($offer->categories_id == 3)
+                                <img src="/images/pool.png" height="200" width="200">
+
+                                @elseif($offer->categories_id == 4)
+                                <img src="/images/electric.png" height="200" width="200">
+
+                                @elseif($offer->categories_id == 5)
+                                <img src="/images/water.png" height="220" width="200">
+
+                                @elseif($offer->categories_id == 6)
+                                <img src="/images/family and child support.png" height="200" width="200">
+                                @endif
                             </div>
                         </div>
                         <div class="col-md-9 col-lg-9 col-sm-9 col-xs-12">
@@ -44,13 +71,9 @@
             @endif
 
         </div>
-        <div class="row">
-            <div class="col-md-12 col-lg-12 col-sm-12 col xs-12">
-                <div class="acknowledge-box-button">
-                    <a href="../p/create-service" class="btn btn-primary"><span>Create a Service</span><img src="/images/right-white.png"></a>
-                </div>
-            </div>
-        </div>
+        <br>
+        <br>
+        <br>
     </div>
 </section>
 @endsection
